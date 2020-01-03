@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<!-- 
+
+ -->
+</head>
+<body> 
+	<h3>Painoindeksi</h3>
+
+	<form>
+		<label>paino</label> 
+        <input type="text" id="paino" size="5"> 
+        <label>pituus</label> 
+        <input type="text" id="pituus" size="5"> 
+		<input type="button" value="Laske" onclick="laskePainoindeksi()">
+	</form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laskePainoindeksi() {
+			// Lomakekentän lukema arvo
+            var paino = document.getElementById("paino").value;
+            var pituus = document.getElementById("pituus").value;
+			var painoindeksi =  paino / ((pituus / 100.0) * (pituus / 100.0));
+
+			// Jos ostot on 0-299,99
+			if (painoindeksi < 18.5) {
+                
+                document.getElementById("vastaus").innerHTML = "<p>Painoindeksi on " +
+					painoindeksi.toFixed(2) + "(Normaalia alhaisempi).</p>";
+
+
+            } else if (painoindeksi < 25.0) {
+                document.getElementById("vastaus").innerHTML = "<p>Painoindeksi on " +
+					painoindeksi.toFixed(2) + "(Normaali).</p>";
+            } else {
+                document.getElementById("vastaus").innerHTML = "<p>Painoindeksi on " +
+					painoindeksi.toFixed(2) + "(Ylipaino).</p>";
+            }
+        }
+
+	
+	</script>
+</body>
+</html>

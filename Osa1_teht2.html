@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kanavapaketti</title>
+<style> 
+  body {
+    padding: 30px;
+  }
+  .form {
+      border: solid black;
+      padding: 10px;
+      max-width: 400px;
+
+  }
+  input {
+      margin: 5px;
+  }
+
+</style>
+<!-- 
+
+ -->
+</head>
+<body> 
+        <h3>Kanavapaketti</h3>
+    <div class="form" >
+           
+        <form>
+            <label>Paketin hinta:</label> 
+            <input type="text" id="paketinHinta" size="7"> 
+            <br>
+            <label>Määräaika:</label> 
+            <input type="text" id="maaraAika" size="5"> 
+            <br>
+            <input type="button" value="Laske kokonaishinta" onclick="laskePaivasakko()">
+        </form>
+    </div>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laskePaivasakko() {
+		// Lomakekentän arvo
+        var paketinhinta = document.getElementById("paketinHinta").value;
+        var maaraAika = document.getElementById("maaraAika").value;
+        
+        var kokonaishinta = (paketinhinta * maaraAika).toFixed(2)
+
+		
+		// Vastauksen kirjoittaminen html-sivulle
+		document.getElementById("vastaus").innerHTML = "<p> Kokonaishinta on " + kokonaishinta + " euroa.</p>";
+	}
+	</script>
+</body>
+</html>

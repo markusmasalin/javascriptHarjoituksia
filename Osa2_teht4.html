@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<!-- 
+
+ -->
+</head>
+<body> 
+	<h3>Kaasujalka</h3>
+
+	<form>
+		<label>Nopeus</label> 
+        <input type="text" id="nopeus" size="5"> 
+        <label>Nopeusrajoitus</label> 
+        <input type="text" id="nopeusrajoitus" size="5"> 
+       
+		<input type="button" value="laske sakko" onclick="laskeSakko()">
+	</form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laskeSakko() {
+			// Lomakekentän lukema arvo
+            var nopeus = parseInt(document.getElementById("nopeus").value);
+            var nopeusrajoitus = parseInt(document.getElementById("nopeusrajoitus").value);
+            var ylinopeus = nopeus - nopeusrajoitus
+			if (nopeusrajoitus <= 60) {
+                
+                if ( ylinopeus <= 0) {
+                    document.getElementById("vastaus").innerHTML = "<p>Ei ylinopeutta";
+               
+                } else if(ylinopeus <= 15 ){
+                    document.getElementById("vastaus").innerHTML = "<p>Rikesakko on 170 euroa";
+                } else if (ylinopeus <= 20){
+                    document.getElementById("vastaus").innerHTML = "<p>Rikesakko on 200 euroa";
+                } else {
+                    document.getElementById("vastaus").innerHTML = "<p>Menee päiväsakoille";
+                }
+                
+
+
+            } else {
+                if(ylinopeus <= 15 ){
+                    document.getElementById("vastaus").innerHTML = "<p>Rikesakko on 140 euroa";
+                } else if (ylinopeus <= 20){
+                    document.getElementById("vastaus").innerHTML = "<p>Rikesakko on 200 euroa";
+                } else {
+                    document.getElementById("vastaus").innerHTML = "<p>Menee päiväsakoille";
+                }
+            }
+        }
+
+	
+	</script>
+</body>
+</html>

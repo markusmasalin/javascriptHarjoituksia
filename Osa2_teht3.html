@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<!-- 
+
+ -->
+</head>
+<body> 
+	<h3>Noppapeli</h3>
+
+	<form>
+		<label>Panos</label> 
+        <input type="text" id="panos" size="5"> 
+       
+		<input type="button" value="Pelaa" onclick="arvoPeli()">
+	</form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function arvoPeli() {
+			// Lomakekentän lukema arvo
+            var panos = document.getElementById("panos").value;
+            var noppa = Math.round((Math.random() * 5) + 1);
+			
+            console.log(noppa)
+			// Jos ostot on 0-299,99
+			if (noppa == 6) {
+                var voitto = panos * 1.5;
+                document.getElementById("vastaus").innerHTML = "<p>Noppa oli " +
+					noppa + ", voitto on " + voitto;
+
+
+            } else if (noppa == (2 || 4)) {
+                var voitto = panos * 1.25;
+                document.getElementById("vastaus").innerHTML = "<p>Noppa oli " +
+					noppa + ", voitto on " + voitto;
+            } else {
+                document.getElementById("vastaus").innerHTML = "<p>Noppa oli " +
+					noppa + ", ei voittoa.";
+            }
+        }
+
+	
+	</script>
+</body>
+</html>

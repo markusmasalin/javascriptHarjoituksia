@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Samat nopat</title>
+<!-- 
+ Tee ohjelma, mikä arpoo kaksi noppalukua niin kauan kunnes
+ molemmat noppaluvut ovat samoja. Lopuksi ohjelma kertoo,
+ montako kertaa arvonta piti tehdä.
+ -->
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+	<h3>Samat nopat</h3>
+	
+    <div class="form" id="vastaus"></div>
+    <input type="button" value="Arvo avainluvut" onclick="arvoAvainluvut()">
+	
+    <script type="text/javascript">
+        function arvoAvainluvut() {
+
+          var teksti = ""
+          var numero = 0
+            for (var i = 1; i <= 100; i++) {
+              numero = Math.round((Math.random() * 9998)+ 1 );
+              
+              teksti = teksti + numero + " "
+              
+              console.log(teksti)
+
+                if  (i % 10 == 0) {
+                teksti = teksti + "<br>"
+                }
+            }
+
+        
+        document.getElementById("vastaus").innerHTML = "<p>" + teksti + " </p>"
+		// Arvotaan nopat 
+        }
+		// Arvontojen lukumäärä
+		
+		// Silmukkaa suoritetaan niin kauan kuin nopat ovat erit
+		
+		// Näytetään vastaus
+	</script>
+</body>
+</html>

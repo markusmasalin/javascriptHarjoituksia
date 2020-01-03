@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sademäärä</title>
+<!-- 
+ Tee ohjelma, mikä arpoo kaksi noppalukua niin kauan kunnes
+ molemmat noppaluvut ovat samoja. Lopuksi ohjelma kertoo,
+ montako kertaa arvonta piti tehdä.
+ -->
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+    <h3>Arvonta</h3>
+    
+	<div class="form"> 
+    <label>Nimi:</label> 
+    
+    <input type="text" id="nimi" size="10"> 
+    <input type="button" value="Lisää" onclick="laitaNimi()">
+    <input type="button" value="Arvo" onclick="arvo()">
+    <div  id="nimet"></div>
+    <div  id="arvonta"></div>
+</div>
+    <script type="text/javascript">
+        var nimet = [];
+        function laitaNimi() {
+            var paikka = nimet.length;
+            nimet[paikka] = document.getElementById("nimi").value;
+            document.getElementById("nimi").value = "";
+            var teksti = "";
+         
+        for (var i = 0; i < nimet.length; i++) {
+           teksti = teksti + " " + nimet[i]
+            console.log(teksti + 'teksti')
+          
+        }
+        
+        document.getElementById("nimet").innerHTML = "<p> Annetut nimet:  " + teksti + "</p>";
+        }
+        function arvo() {
+            var voittaja = Math.floor(Math.random() * nimet.length);
+            console.log(nimet[voittaja])
+            document.getElementById("arvonta").innerHTML = "<p> Voittaja on :  " + nimet[voittaja] + "</p>";
+        }
+
+	</script>
+</body>
+</html>

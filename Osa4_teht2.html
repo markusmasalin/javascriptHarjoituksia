@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ikä</title>
+<style> 
+  body {
+    padding: 30px;
+  }
+  .form {
+      border: solid black;
+      padding: 10px;
+      max-width: 400px;
+
+  }
+  input {
+      margin: 5px;
+  }
+</style>
+<!-- 
+ -->
+</head>
+<body> 
+        <h3>Ikä</h3>
+    <div class="form" >
+           
+        <form>
+            <label>Syntymävuosi:</label> 
+            <input type="text" id="syntymaAika" size="7"> 
+            <br>
+            <input type="button" value="Kerro ikä" onclick="laskeIka()">
+        </form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+    <div id="laskettuIka"></div>
+    </div>
+
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laskeIka() {
+		// Lomakekentän arvo
+        var syntymaAika = document.getElementById("syntymaAika").value;
+        console.log(syntymaAika + ' syntymaAika')
+        var tanaan = new Date().getFullYear()
+        console.log(tanaan + ' nykyhetki')
+        var ika = tanaan - syntymaAika
+        console.log(ika + ' Ikä')
+        if (ika < 0 ){
+            document.getElementById("laskettuIka").innerHTML = "<p> Syntymävuosi ei voi olla tulevaisuudessa.</p>";
+       
+        } else {
+            document.getElementById("laskettuIka").innerHTML = "<p> Olet tänä vuonna : " + ika + "vuotta.</p>";
+       
+        }
+       
+        
+        
+        
+	}
+	</script>
+</body>
+</html>

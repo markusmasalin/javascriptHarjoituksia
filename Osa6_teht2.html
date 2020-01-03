@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kurssit</title>
+<!-- 
+ Tee ohjelma, mikä arpoo kaksi noppalukua niin kauan kunnes
+ molemmat noppaluvut ovat samoja. Lopuksi ohjelma kertoo,
+ montako kertaa arvonta piti tehdä.
+ -->
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+    <h3>Kurssit</h3>
+    
+	<div class="form"> 
+  
+    
+  
+    <div  id="vastaus"></div>
+  
+</div>
+    <script type="text/javascript">
+        var kurssit = [
+        { "nimi" : "Orientaatio digitaalisiin palveluihin",
+        "tunnus" : "DIG1TN001",
+        "laajuus" : 5,
+        "ajoitus" : "1. lukukausi"
+        },
+        { "nimi" : "Orientaatio ohjelmistotuotantoon",
+        "tunnus" : "SWD1TN001",
+        "laajuus" : 5,
+        "ajoitus" : "1. lukukausi"
+        },
+        { "nimi" : "Orientaatio ICT ja liiketoiminta",
+        "tunnus" : "BIG1TN001",
+        "laajuus" : 5,
+        "ajoitus" : "1. lukukausi"
+        },
+        { "nimi" : "Orientaatio ICT-infrastruktuuriin",
+        "tunnus" : "ICT1TN010",
+        "laajuus" : 5,
+        "ajoitus" : "1. lukukausi"
+        }, 
+        { "nimi" : "Ruotsin kielioppi ja rakenteet",
+        "tunnus" : "SWE8TN062",
+        "laajuus" : 3,
+        "ajoitus" : "1. lukukausi"
+        },
+        { "nimi" : "Työvälineet myynnin ja palvelun ympäristössä",
+        "tunnus" : "SAL1TX001",
+        "laajuus" : 5,
+        "ajoitus" : "1. lukukausi",
+        } ];
+        function listaa() {
+           
+            var teksti = "";
+         
+        for (var i = 0; i < kurssit.length; i++) {	
+            teksti = teksti + "Tunnus: " + kurssit[i].tunnus + "<br>";
+            teksti = teksti + "<p>Nimi: " + kurssit[i].nimi + "<br>";
+			teksti = teksti + "Laajuus: " + kurssit[i].laajuus +  "<br>";
+			teksti = teksti + "Ajoitus: " + kurssit[i].ajoitus + "</p>";
+		}
+		// Vastauksen kirjoittaminen html-sivulle
+		document.getElementById("vastaus").innerHTML = teksti;
+    }
+    listaa()
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<!-- 
+
+ -->
+</head>
+<body> 
+	<h3>Päiväsakkolaskuri</h3>
+
+	<form>
+		<label>Nettotulot</label> 
+		<input type="text" id="nettotulot" size="5"> 
+		<input type="button" value="Laske päiväsakko" onclick="laskePaivasakko()">
+	</form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laskePaivasakko() {
+		// Lomakekentän arvo
+        var muuttuja = document.getElementById("nettotulot").value;
+        
+        var nettotulot = ((muuttuja -255)/60).toFixed(2)
+
+		
+		// Vastauksen kirjoittaminen html-sivulle
+		document.getElementById("vastaus").innerHTML = "<p> Päiväsakon suuruus on " + nettotulot;
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kuvat</title>
+
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+	<h3>Kuvat</h3>
+	<div class="form"> 
+    <div  id="vastaus"></div>
+    
+</div>
+  <script type="text/javascript">
+    var kuvat = [
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/assi.jpg",
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/myynti.jpg",
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/tiko.jpg",
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/yleinen1.jpg",
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/yleinen2.jpg"
+    ];
+    
+    var teksti = ""
+    for (var i = 0; i < kuvat.length; i++) {
+        teksti = teksti + "<img src='" + kuvat[i] + "'alt='kuva' height='100' width='100'> "
+        
+        }
+   
+        document.getElementById("vastaus").innerHTML = "<p> "+ teksti + "</p>";
+        
+
+  </script>
+</body>
+</html>

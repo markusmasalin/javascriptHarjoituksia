@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Samat nopat</title>
+<!-- 
+ Tee ohjelma, mikä arpoo kaksi noppalukua niin kauan kunnes
+ molemmat noppaluvut ovat samoja. Lopuksi ohjelma kertoo,
+ montako kertaa arvonta piti tehdä.
+ -->
+</head>
+<body>
+	<h3>Samat nopat</h3>
+	
+    <div id="vastaus"></div>
+    <input type="button" value="Heitä noppia" onclick="heitaNoppaa()">
+	
+    <script type="text/javascript">
+        function heitaNoppaa() {
+        var noppa1 = Math.round((Math.random() * 5) +1);
+        console.log(noppa1 + "noppa1")
+        var noppa2 = Math.round((Math.random() * 5) +1);
+        console.log(noppa2 + "noppa2")
+        var lkm = 1;
+        console.log(lkm) 
+
+        while (noppa1 != noppa2) {
+            noppa1 = Math.round((Math.random() * 5) +1);
+            noppa2 = Math.round((Math.random() * 5) +1);
+            lkm = lkm + 1;
+            console.log(lkm)
+        }
+        document.getElementById("vastaus").innerHTML = "<p> Arvontoja oli yhteensä " + lkm + " kappaletta </p>"
+		// Arvotaan nopat 
+        }
+		// Arvontojen lukumäärä
+		
+		// Silmukkaa suoritetaan niin kauan kuin nopat ovat erit
+		
+		// Näytetään vastaus
+	</script>
+</body>
+</html>

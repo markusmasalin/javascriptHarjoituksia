@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mökkiviikonloppu</title>
+<style> 
+  body {
+    padding: 30px;
+  }
+  .form {
+      border: solid black;
+      padding: 10px;
+      max-width: 400px;
+
+  }
+  input {
+      margin: 5px;
+  }
+
+</style>
+<!-- 
+
+ -->
+</head>
+<body> 
+        <h3>Kimppakyyti</h3>
+    <div class="form" >
+           
+        <form>
+            <label>Kilometrit:</label> 
+            <input type="text" id="kilometrit" size="7"> 
+            <br>
+            <label>Kulutus:</label> 
+            <input type="text" id="kulutus" size="7"> 
+            <br>
+            <label>Litrahinta:</label> 
+            <input type="text" id="litrahinta" size="7"> 
+            <br>
+            <label>Määrä:</label> 
+            <input type="text" id="maara" size="7"> 
+            <br>
+           
+            <input type="button" value="Laske " onclick="laskeKulutus()">
+        </form>
+    </div>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laskeKulutus() {
+		// Lomakekentän arvo
+        var kilometrit = document.getElementById("kilometrit").value;
+        var kulutus = document.getElementById("kulutus").value;
+        var litrahinta = document.getElementById("litrahinta").value;
+        var maara = document.getElementById("maara").value;
+       
+        
+        var polttoainekustannukset =  (kulutus / 100.0 * litrahinta * kilometrit / maara ).toFixed(2)
+
+		
+		// Vastauksen kirjoittaminen html-sivulle
+		document.getElementById("vastaus").innerHTML = "<p> Polttoaine per henkilö on " + polttoainekustannukset + " euroa.</p>";
+	}
+	</script>
+</body>
+</html>

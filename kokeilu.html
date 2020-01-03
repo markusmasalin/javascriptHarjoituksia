@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Speech Recognition Demo
+    </title>
+    <script>
+    window.addEventListener("load", function () {
+      // [1] CHECK IF BROWSER SUPPORTS SPEECH RECOGNITION
+      if (window.hasOwnProperty('SpeechRecognition') || window.hasOwnProperty('webkitSpeechRecognition')) {
+        document.getElementById("search-speech").style.display = "block";
+      }
+    });
+    </script>
+  </head>
+  <body>
+    <!-- [THE SIMPLE SEARCH FORM] -->
+    <form id="search-form" onsubmit="return false">
+      <!-- SEARCH FIELD -->
+      <input type="text" id="search-input"/>
+      <input type="submit" id="search-go" value="Search"/>
+ 
+      <!-- SPEECH RECOGNITION -->
+      <div id="search-speech" style="display:none">
+        <p>
+          Click on "Speech Recognition On", speak into the mic, and wait for a second.
+        </p>
+        <br><br>
+        <input type="button" id="search-on" value="Speech Recognition On"/>
+        <input type="button" disabled id="search-off" value="Cancel"/>
+      </div>
+    </form>
+  </body>
+</html>

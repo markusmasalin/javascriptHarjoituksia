@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kelakorvaus</title>
+<style> 
+  body {
+    padding: 30px;
+  }
+  .form {
+      border: solid black;
+      padding: 10px;
+      max-width: 400px;
+
+  }
+  input {
+      margin: 5px;
+  }
+</style>
+<!-- 
+ -->
+</head>
+<body> 
+        <h3>Kelakorvaus</h3>
+    <div class="form" >
+           
+        <form>
+            <label>Kesto:</label> 
+            <input type="text" id="kesto" size="7"> <label> min</label> 
+            <br>
+            <input type="button" value="Laske" onclick="laske()">
+        </form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+    <div id="kelakorvaus"></div>
+    </div>
+
+	
+	 <script type="text/javascript">
+	// Funktio
+    function laskeKorvaus(kesto) {
+        if (kesto <= 10){
+            return 7
+        } else if (kesto <= 20) {
+            return 9
+        } else if (kesto <= 30) {
+            return 9
+        } else {
+            return 1
+        }
+
+    }
+
+    function laske() {
+		// Lomakekentän arvo
+        var kesto = document.getElementById("kesto").value;
+        console.log(kesto + ' kesto')
+        var korvaus = laskeKorvaus(kesto)
+        console.log(korvaus + ' korvaus')
+        if (korvaus == 1){
+            document.getElementById("kelakorvaus").innerHTML = "<p> Kela ei korvaa näin pitkiä vastaanottoja. </p>" ;
+       
+        } else {
+            document.getElementById("kelakorvaus").innerHTML = "<p> Kelakorvaus on  " + korvaus + ".00</p>";
+        }
+       
+        
+       
+       
+        }
+       
+
+	</script>
+</body>
+</html>

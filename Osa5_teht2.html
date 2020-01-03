@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lämpötilat</title>
+
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+	<h3>Sademäärä</h3>
+	<div class="form"> 
+    <div  id="vastaus1"></div>
+    <div  id="vastaus2"></div>
+    
+</div>
+  <script type="text/javascript">
+    var lampotilat = [-3.3,-4.7,-1.3,3.9,10.2,14.6,17.8,16.3,11.5,6.6,1.6,-2.0];
+    var summa = 0;
+    var kokoteksti = ""
+    var teksti = ""
+    for (var i = 0; i < lampotilat.length; i++) {
+        console.log('summa' + summa)
+        summa = summa + lampotilat[i]
+        console.log('summa' + summa)
+        teksti = (i+1) + "." + lampotilat[i]
+        console.log('teksti' + teksti)
+        kokoteksti = kokoteksti +"<br>" + teksti
+        console.log('kokoteksti' + kokoteksti)
+
+        }
+   
+    var keskiarvo =  (summa / lampotilat.length).toFixed(1)  
+        document.getElementById("vastaus1").innerHTML = "<p> "+ kokoteksti + "</p>";
+        
+        document.getElementById("vastaus2").innerHTML = "<p> Lämpötilojen keskiarvo on  " + keskiarvo + "mm.</p>";
+        
+
+  </script>
+</body>
+</html>

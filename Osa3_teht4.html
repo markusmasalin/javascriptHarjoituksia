@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Äänien vertailuluvut</title>
+<!-- 
+ Tee ohjelma, mikä arpoo kaksi noppalukua niin kauan kunnes
+ molemmat noppaluvut ovat samoja. Lopuksi ohjelma kertoo,
+ montako kertaa arvonta piti tehdä.
+ -->
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+	<h3>Tavoitepainolaskuri</h3>
+	<div class="form"> 
+        <label>Kokonaisäänimäärä:</label> 
+        
+    <input type="text" id="aaniMaara" size="5"> 
+    <br>
+    <label>Ehdokkainen määrä:</label> 
+    
+    <input type="text" id="ehdokkaat" size="5"> 
+    <br>
+    <input type="button" value="näitä vertailuluvut" onclick="naytaVertailuluvut()">
+    <div  id="vastaus"></div>
+</div>
+    <script type="text/javascript">
+        function naytaVertailuluvut() {
+          var ehdokkaat = parseInt(document.getElementById("ehdokkaat").value);
+          var aaniMaara = parseInt(document.getElementById("aaniMaara").value);
+          console.log(ehdokkaat + 'ehdokkaat')
+          console.log(aaniMaara + 'aaniMaara')
+          var vertausluku = 0
+          var teksti = ""
+        for (var i = 1; i <= ehdokkaat; i++) {
+          vertausluku = (aaniMaara / i).toFixed(0)
+          
+          console.log(vertausluku + 'vertausluku')
+          teksti = teksti + i + '. '+  vertausluku + "<br>"
+          console.log(teksti + 'teksti')
+        }
+        
+        document.getElementById("vastaus").innerHTML = "<p> " + teksti + "</p>";
+        }
+
+	</script>
+</body>
+</html>

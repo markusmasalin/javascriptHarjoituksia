@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hetu</title>
+<style> 
+  body {
+    padding: 30px;
+  }
+  .form {
+      border: solid black;
+      padding: 10px;
+      max-width: 400px;
+
+  }
+  input {
+      margin: 5px;
+  }
+</style>
+<!-- 
+ -->
+</head>
+<body> 
+        <h3>Hetu</h3>
+    <div class="form" >
+           
+        <form>
+            <label>Hetu:</label> 
+            <input type="text" id="hetu" size="12"> 
+            <br>
+            <input type="button" value="Kerro" onclick="laskeHetu()">
+        </form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+    <div id="sukupuoli"></div>
+    <div id="syntymapaiva"></div>
+    </div>
+
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laskeHetu() {
+		// Lomakekentän arvo
+        var hetu = document.getElementById("hetu").value;
+        console.log(hetu + ' hetu')
+        var sukupuoliLasku = hetu.charAt(9)
+        console.log(sukupuoliLasku + ' sukupuoliLasku')
+        if ((sukupuoliLasku % 2) == 0) {
+            sukupuoli = 'nainen'
+           
+        } else {
+            sukupuoli = 'mies'
+        }
+        var pp = hetu.substr(0, 2)
+        console.log(pp + 'pp')
+        var kk = hetu.substr(2, 2)
+        console.log(kk + 'kk')
+        var vuosi = hetu.substr(4, 2)
+        console.log(vuosi + 'vuosi')
+        var vv = parseInt(vuosi)
+        console.log(vv + 'vv')
+        var valimerkki = hetu.charAt(6)
+        console.log(valimerkki + 'valimerkki')
+        if (valimerkki == "+"){
+            vv = vv + 1800
+        } else if (valimerkki == "-") {
+            vv = vv + 1900
+        } else if (valimerkki == "A" || valimerkki ==  "a") {
+            vv = vv + 2000
+        } else {
+            vv == 1
+        }
+        
+        if (vv == 1 ){
+            document.getElementById("sukupuoli").innerHTML = "<p> Tarkista hetu ja syötä uudelleen.</p>";
+       
+        } else {
+            document.getElementById("sukupuoli").innerHTML = "<p> Sukupuoli on " + sukupuoli + ".</p>";
+            document.getElementById("syntymapaiva").innerHTML = "<p> Syntymäpäivä on " + pp + "." + kk + "." + vv + ".</p>";
+       
+        }
+       
+        
+        
+        
+	}
+	</script>
+</body>
+</html>

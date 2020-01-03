@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rakennusfirma</title>
+<style> 
+  body {
+    padding: 30px;
+  }
+  .form {
+      border: solid black;
+      padding: 10px;
+      max-width: 400px;
+
+  }
+  input {
+      margin: 5px;
+  }
+</style>
+<!-- 
+ -->
+</head>
+<body> 
+        <h3>Rakennusfirma</h3>
+    <div class="form" >
+           
+        <form>
+            <label>Alkoi:</label> 
+            <input type="text" id="alkoi" size="7"> 
+            <br>
+            <label>Päättyi:</label> 
+            <input type="text" id="paattyi" size="7"> 
+            <br>
+            <input type="button" value="Laske" onclick="laske()">
+        </form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+    <div id="hinta"></div>
+    </div>
+
+	
+	 <script type="text/javascript">
+	// Funktio
+    function laskeTyonHinta(alkoi, paattyi, tuntihinta) {
+        var alkoiTunneissa = alkoi.substr(0, 2)
+        console.log(alkoiTunneissa+ 'alkoiTunneissa')
+        var alkoiMinuuteissa = alkoi.substr(3, 2)
+        console.log(alkoiMinuuteissa+ 'alkoiMinuuteissa')
+        var loppuiTunneissa = paattyi.substr(0, 2)
+        console.log(alkoiMinuuteissa+ 'alkoiMinuuteissa')
+        var loppuiMinuuteissa = paattyi.substr(3,2)
+        console.log(loppuiMinuuteissa+ 'loppuiMinuuteissa')
+        var tyotunnit = loppuiTunneissa - alkoiTunneissa
+        console.log(tyotunnit+ 'tyotunnit')
+        var tyominuutit = loppuiMinuuteissa - alkoiMinuuteissa
+        console.log(tyominuutit+ 'tyominuutit')
+        if (tyominuutit < 0){
+            tyotunnit = tyotunnit - 1
+            tyominuutit = tyominuutit + 60
+        }
+        var tyoaika = tyotunnit + (tyominuutit /60)
+        console.log(tyoaika+ 'tyoaika')
+        var palkka = (tuntihinta * tyoaika)
+        console.log(palkka+ 'palkka')
+        var palkkaPyoristetty = palkka.toFixed(2)
+        return palkkaPyoristetty
+
+    }
+
+    function laske() {
+		// Lomakekentän arvo
+        var alkoi = document.getElementById("alkoi").value;
+        var paattyi = document.getElementById("paattyi").value; 
+        var tuntihinta = 48
+        var palkka = laskeTyonHinta(alkoi, paattyi, tuntihinta)
+        console.log(palkka + ' palkka')
+       
+        
+        document.getElementById("hinta").innerHTML = "<p> Työn hinta on  " + palkka + "</p>";
+        
+       
+        
+       
+       
+        }
+       
+
+	</script>
+</body>
+</html>

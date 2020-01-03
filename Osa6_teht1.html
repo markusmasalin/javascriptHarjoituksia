@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Opiskelu</title>
+<!-- 
+ Tee ohjelma, mikä arpoo kaksi noppalukua niin kauan kunnes
+ molemmat noppaluvut ovat samoja. Lopuksi ohjelma kertoo,
+ montako kertaa arvonta piti tehdä.
+ -->
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+    <h3>Opiskelijatiedot</h3>
+    
+    <div class="form" id="opiskelu"></div>
+</div>
+    <script type="text/javascript">
+        var opiskelijaTiedot = {
+            opiskelijatunnus: 1903403,
+            nimi: "Markus Masalin",
+            osoite: "Vaaralankuja 19 A, 01230 Vantaa"
+
+        }
+
+        function naytaOpiskelijatiedot() {
+        
+        var teksti = "Opiskelijanumero: " + opiskelijaTiedot.opiskelijatunnus + "<br>"
+        teksti = teksti + "Nimi: " + opiskelijaTiedot.nimi + "<br>"
+        teksti = teksti + "Osoite: " + opiskelijaTiedot.osoite
+         document.getElementById("opiskelu").innerHTML = "<p>" + teksti + "</p>";
+        }
+        naytaOpiskelijatiedot()
+
+	</script>
+</body>
+</html>

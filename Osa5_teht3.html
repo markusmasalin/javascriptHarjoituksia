@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sademäärä</title>
+<!-- 
+ Tee ohjelma, mikä arpoo kaksi noppalukua niin kauan kunnes
+ molemmat noppaluvut ovat samoja. Lopuksi ohjelma kertoo,
+ montako kertaa arvonta piti tehdä.
+ -->
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+    <h3>Veriryhmä</h3>
+    
+	<div class="form"> 
+    <label>Haettava veriryhmä:</label> 
+    
+    <input type="text" id="veriryhma" size="5"> 
+    <input type="button" value="Kerro" onclick="laskeVeri()">
+    <div  id="vastaus"></div>
+</div>
+    <script type="text/javascript">
+        function laskeVeri() {
+          var veriryhmat = ["A+", "O-", "AB+", "O+", "AB+", "AB+", "O-", "AB+", "O+", "AB+"];
+          var haettavaVR = document.getElementById("veriryhma").value
+          console.log(haettavaVR + 'haettava')
+         
+          var summa = 0
+        for (var i = 0; i < veriryhmat.length; i++) {
+          if (veriryhmat[i] == haettavaVR ){
+              summa = summa + 1
+          }
+            console.log(summa + 'summa')
+          
+          
+        }
+        
+        document.getElementById("vastaus").innerHTML = "<p> Veriryhmiä " + haettavaVR + " on " + summa +" kpl.</p>";
+        }
+
+	</script>
+</body>
+</html>

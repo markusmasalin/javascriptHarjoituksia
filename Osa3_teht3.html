@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Painolaskuri</title>
+<!-- 
+ Tee ohjelma, mikä arpoo kaksi noppalukua niin kauan kunnes
+ molemmat noppaluvut ovat samoja. Lopuksi ohjelma kertoo,
+ montako kertaa arvonta piti tehdä.
+ -->
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+	<h3>Tavoitepainolaskuri</h3>
+	<div class="form"> 
+    <div  id="vastaus"></div>
+    <input type="text" id="paino" size="5"> 
+    <input type="button" value="Laske painon pudotus" onclick="naytaTavoitepainot()">
+    
+</div>
+    <script type="text/javascript">
+        function naytaTavoitepainot() {
+          var paino = parseInt(document.getElementById("paino").value);
+          console.log(paino + 'paino')
+          var painonlasku = ( paino * 0.1 / 7)
+          tulostettavaPaino = 0
+          console.log(painonlasku + 'painonlasku')
+          var teksti = ""
+        for (var i = 1; i <= 7; i++) {
+          console.log(painonlasku + 'painonlasku')
+          paino = (paino - painonlasku)
+          tulostettavaPaino = paino.toFixed(1)
+          console.log(paino + 'paino')
+          teksti = teksti + i + '. viikon jälkeen ' +  tulostettavaPaino + "<br>"
+        }
+        
+        document.getElementById("vastaus").innerHTML = "<p> " + teksti + "</p>";
+        }
+
+	</script>
+</body>
+</html>

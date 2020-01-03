@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mökkiviikonloppu</title>
+<style> 
+  body {
+    padding: 30px;
+  }
+  .form {
+      border: solid black;
+      padding: 10px;
+      max-width: 400px;
+
+  }
+  input {
+      margin: 5px;
+  }
+</style>
+<!-- 
+ -->
+</head>
+<body> 
+        <h3>Palkkalaskuri</h3>
+    <div class="form" >
+           
+        <form>
+            <label>Bruttopalkka:</label> 
+            <input type="text" id="bruttopalkka" size="7"> 
+            <br>
+            <label>Veroprosentti:</label> 
+            <input type="text" id="veroprosentti" size="7"> 
+            <br>
+            <input type="button" value="Laske palkka " onclick="laskePalkka()">
+        </form>
+    </div>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+    <div id="vastausVerot"></div>
+    <div id="vastausTel"></div>
+    <div id="vastausVakuutus"></div>
+    <div id="vastausKateen"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laskePalkka() {
+		// Lomakekentän arvo
+        var bruttopalkka = document.getElementById("bruttopalkka").value;
+        var veroprosentti = document.getElementById("veroprosentti").value;
+        
+        var verot =  (bruttopalkka * veroprosentti /100 ).toFixed(2);
+        var tel =  (bruttopalkka * 0.0675 ).toFixed(2);
+        var vakuutus =  (bruttopalkka * 0.015 ).toFixed(2);
+        var kateen =  (bruttopalkka - verot - tel - vakuutus).toFixed(2);
+		
+		// Vastauksen kirjoittaminen html-sivulle
+        document.getElementById("vastausVerot").innerHTML = "<p> Veron osuus on  " + verot + ".</p>";
+        document.getElementById("vastausTel").innerHTML = "<p> Työttömyysvakuutusmaksun osuus on  " + tel + ".</p>";
+        document.getElementById("vastausVakuutus").innerHTML = "<p> Työeläkevakuutusmaksun osuus on  " + vakuutus + ".</p>";
+        document.getElementById("vastausKateen").innerHTML = "<p> Käteen jää  " + kateen + ".</p>";
+	
+        
+	}
+	</script>
+</body>
+</html>

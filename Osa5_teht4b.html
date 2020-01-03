@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kuvat</title>
+
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+	<h3>Kuvat</h3>
+	<div class="form"> 
+        <img id="aaa" src="https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/assi.jpg"  name="image" />
+    
+</div>
+  <script type="text/javascript">
+    var image=document.getElementById("aaa");
+    var kuvat = [
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/assi.jpg",
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/myynti.jpg",
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/tiko.jpg",
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/yleinen1.jpg",
+    "https://myy.haaga-helia.fi/~swd1ta001/kuvatJS/yleinen2.jpg"
+    ];
+    var index=0;
+   
+    function slide() {
+        image.setAttribute("src",kuvat[index]);
+        index++;
+        if(index>=kuvat.length)
+        {
+        index=0;
+        }
+    }
+    setInterval("slide()",2000);
+   
+        
+
+  </script>
+</body>
+</html>

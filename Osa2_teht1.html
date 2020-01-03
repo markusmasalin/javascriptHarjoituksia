@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XX</title>
+<!-- 
+
+ -->
+</head>
+<body> 
+	<h3>Myyntipalkkio</h3>
+
+	<form>
+		<label>myyntihinta</label> 
+		<input type="text" id="myyntihinta" size="5"> 
+		<input type="button" value="Laske" onclick="laskeMyyntipalkkio()">
+	</form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laskeMyyntipalkkio() {
+			// Lomakekentän lukema arvo
+			var myyntihinta = document.getElementById("myyntihinta").value;
+			var myyntipalkkio;
+
+			// Jos ostot on 0-299,99
+			if ((myyntihinta * 0.0344) <= 2400){
+				myyntipalkkio = 2400;
+				// Jos ostot on 300-599,99
+			
+			} else {
+				myyntipalkkio = myyntihinta * 0.0344;
+			}
+console.log(myyntipalkkio);
+			document.getElementById("vastaus").innerHTML = "<p>Myyntipalkkio on " +
+					myyntipalkkio.toFixed(2) + " euroa.</p>";
+		}
+	</script>
+</body>
+</html>

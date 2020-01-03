@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nimi</title>
+<style> 
+  body {
+    padding: 30px;
+  }
+  .form {
+      border: solid black;
+      padding: 10px;
+      max-width: 400px;
+
+  }
+  input {
+      margin: 5px;
+  }
+</style>
+<!-- 
+ -->
+</head>
+<body> 
+        <h3>Nimi</h3>
+    <div class="form" >
+           
+        <form>
+            <label>Nimi:</label> 
+            <input type="text" id="nimi" size="7"> 
+            <br>
+            <input type="button" value="Näytä" onclick="muunnaNimi()">
+        </form>
+    </div>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+    <div id="vastausSuurella"></div>
+    <div id="vastausPienella"></div>
+    <div id="vastausMaara"></div>
+    <div id="vastausEkaMerkki"></div>
+    <div id="vastausKolmeEkaa"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function muunnaNimi() {
+		// Lomakekentän arvo
+        var nimi = document.getElementById("nimi").value;
+        console.log(nimi + ' nimi')
+        var nimiIsolla = nimi.trim().toUpperCase()
+        console.log(nimiIsolla + ' nimi muutettu isoksi')
+        var nimiPienella = nimi.trim().toLowerCase()
+        console.log(nimiPienella + ' nimi muutettu pieneksi')
+        var nimenPituus = nimi.length
+        console.log(nimenPituus + ' nimen merkkien määrä laskettu')
+        var nimenEka = nimi.charAt(0)
+        console.log(nimenEka + ' nimen eka')
+        var nimenKolmeEkaa = nimi.substr(0,3)
+        console.log(nimenKolmeEkaa + ' nimen kolme ekaa')
+		
+		
+        document.getElementById("vastausSuurella").innerHTML = "<p> Suurella: " + nimiIsolla + ".</p>";
+        document.getElementById("vastausPienella").innerHTML = "<p>Pienellä: " + nimiPienella + ".</p>";
+        document.getElementById("vastausMaara").innerHTML = "<p> Merkkien määrä: " + nimenPituus + ".</p>";
+        document.getElementById("vastausEkaMerkki").innerHTML = "<p>Eka merkki: " + nimenEka + ".</p>";
+        document.getElementById("vastausKolmeEkaa").innerHTML = "<p>Kolme ekaa merkkiä: " + nimenKolmeEkaa + ".</p>";
+	
+        
+	}
+	</script>
+</body>
+</html>

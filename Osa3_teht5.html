@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Peliautomaatti</title>
+<!-- 
+ Tee ohjelma, mikä arpoo kaksi noppalukua niin kauan kunnes
+ molemmat noppaluvut ovat samoja. Lopuksi ohjelma kertoo,
+ montako kertaa arvonta piti tehdä.
+ -->
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+	<h3>Peliautomaatti</h3>
+	<div class="form"> 
+        <label>Kierrokset:</label> 
+        
+        <input type="text" id="kierrokset" size="5"> 
+        <input type="button" value="pelaa" onclick="pelaa()">
+        <div  id="vastaus"></div>
+    </div>
+    <script type="text/javascript">
+    
+    
+   
+	    function pelaa() {
+			var panos = document.getElementById("kierrokset").value;
+            console.log(panos + 'panos')
+            var kokonaisVoitot = 0;
+            for (var i = 1; i <= panos; i++) {
+            console.log(panos + 'panos')
+            var noppa = Math.round((Math.random() * 5) + 1);
+			var voitto = 0;
+            console.log(noppa + 'noppa')
+			if (noppa == 6) {
+                voitto = 1.5;
+                
+
+            } else if (noppa == (2 || 4)) {
+                voitto = 1.25;
+                
+            } else {
+                
+            }
+            console.log(voitto + 'voitto')
+            kokonaisVoitot = kokonaisVoitot + voitto;
+            console.log(kokonaisVoitot + 'kokonaisVoitot')
+            }
+        var tulos = panos - kokonaisVoitot 
+        console.log(tulos + 'tulos')
+        var teksti1 = "<p> Panokset oli " +  + panos + "</p>"
+        var teksti2 = " <p> Maksetut voitot olivat " + kokonaisVoitot + "</p>"
+        var teksti3 = " <p> Tulos oli " + tulos + "</p>"
+        
+        document.getElementById("vastaus").innerHTML = teksti1 + teksti2 + teksti3;
+        }
+
+	</script>
+</body>
+</html>

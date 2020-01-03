@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Säätiedot</title>
+<!-- 
+ 
+ -->
+</head>
+<style> 
+    body {
+      padding: 30px;
+    }
+    .form {
+        border: solid black;
+        padding: 30px;
+        max-width: 400px;
+  
+    }
+    input {
+        margin: 5px;
+    }
+  
+  </style>
+<body>
+    <h3>Helsinki</h3>
+    
+	<div class="form"> 
+  
+    
+  
+    <div  id="vastaus"></div>
+  
+</div>
+    <script type="text/javascript">
+       
+        function haeSaatiedot() {
+
+            fetch("http://api.openweathermap.org/data/2.5/weather?lang=fi&q=helsinki&units=metric&APPID=e4a10d459b1e8a44b9d56e30f55f06cb")
+               .then(function (response) {
+                   console.log(response, 'response')
+				return response.json();
+              })
+  			  .then(function (responseJson) {
+                console.log(responseJson)
+				document.getElementById("vastaus").innerHTML = "<p>" + responseJson.weather[0].description + 
+				"<br>Lämpötila: " + responseJson.main.temp + "  <br>  Tuuli: " + responseJson.wind.speed + " m/s <br> Pilvisuus: " + responseJson.clouds.all +  "%</p>";
+			  })
+			// Jos tuli jokin virhe
+			.catch(function (error) {
+				console.error(error);
+				document.getElementById("vastaus").innerHTML = "<p>Koodauksen onnea<br >-Sirpa-</p>";
+			})
+           
+        }
+         
+        
+        haeSaatiedot()
+	</script>
+</body>
+</html>
